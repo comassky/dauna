@@ -25,4 +25,33 @@ public class NewHelloAssoCsv extends HelloAssoCsv {
 		this.setFormule(helloAssoCsv.getFormule());
 		this.setMoyenDePaiement(helloAssoCsv.getMoyenDePaiement());
 	}
+
+	@Override
+	public String toString() {
+		return "HelloAssoCsv{" +
+				"numero=" + this.getNumero()+
+				", campagne='" + getCampagne() + '\'' +
+				", formule='" + getFormule() + '\'' +
+				", montant=" + getMontant() +
+				", codePromo='" + getCodePromo() + '\'' +
+				", statut='" + getStatut() + '\'' +
+				", moyenDePaiement='" + getMoyenDePaiement() + '\'' +
+				", nom='" + getNom() + '\'' +
+				", prenom='" + getPrenom() + '\'' +
+				", societe='" + getSociete() + '\'' +
+				", date=" + getDate() +
+				", email='" + getEmail() + '\'' +
+				", dateNaissance=" + getDateNaissance() +
+				", attestation='" + getAttestation() + '\'' +
+				", recu='" + getRecu() + '\'' +
+				", numeroRecu='" + getNumeroRecu() + '\'' +
+				", billet='" + getBillet() + '\'' +
+				", nomAcheteur='" + getNomAcheteur() + '\'' +
+				", prenomAcheteur='" + getPrenomAcheteur() + '\'' +
+				", adresseAcheteur='" + getAdresseAcheteur()+ '\'' +
+				", codePostalAcheteur='" + getCodePostalAcheteur() + '\'' +
+				", villeAcheteur='" + getVilleAcheteur() + '\'' +
+				", paysAcheteur='" + getPaysAcheteur() + '\'' +
+				'}';
+	}
 }
