@@ -2,6 +2,7 @@ package com.comassky.dauna.dto;
 
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvDate;
+import com.opencsv.bean.CsvIgnore;
 import com.opencsv.bean.CsvNumber;
 
 import java.time.LocalDate;
