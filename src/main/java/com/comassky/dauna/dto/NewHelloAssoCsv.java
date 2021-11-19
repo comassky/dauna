@@ -26,6 +26,9 @@ public class NewHelloAssoCsv extends HelloAssoCsv {
 		this.setMoyenDePaiement(helloAssoCsv.getMoyenDePaiement());
 	}
 
+	public NewHelloAssoCsv() {
+	}
+
 	@Override
 	public String toString() {
 		return "HelloAssoCsv{" +

@@ -13,13 +13,15 @@ import java.util.stream.IntStream;
 public class RandomGeneratorService implements RandomGeneratorInterface {
 
 	private int randomNumber(final int max){
-		return new SecureRandom().nextInt(max - 0);
+		return new SecureRandom().nextInt(max);
 	}
 	@Override
-	public NewHelloAssoCsv recupererNumeroGagnant(List<NewHelloAssoCsv> tickets) {
+	public NewHelloAssoCsv recupererNumeroGagnant(List<NewHelloAssoCsv> tickets, final Boolean remove) {
 		final var randomNumber = randomNumber(tickets.size());
 		final var winner =  tickets.get(randomNumber);
-		tickets.remove(randomNumber);
+		if(remove) {
+			tickets.remove(randomNumber);
+		}
 		return winner;
 	}
 

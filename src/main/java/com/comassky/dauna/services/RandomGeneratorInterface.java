@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RandomGeneratorInterface {
 
-	NewHelloAssoCsv recupererNumeroGagnant(final List<NewHelloAssoCsv> tickets);
+	NewHelloAssoCsv recupererNumeroGagnant(final List<NewHelloAssoCsv> tickets, final Boolean remove);
 
 	List<NewHelloAssoCsv> melangerListe(final Integer nombreTourMelange, final List<NewHelloAssoCsv> listeTickets);
 }
