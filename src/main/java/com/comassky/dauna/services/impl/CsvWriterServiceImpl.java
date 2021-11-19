@@ -21,7 +21,7 @@ public class CsvWriterServiceImpl implements CsvWriterService {
 	@Override
 	public void ecrireNouveauFichierListe(final List<NewHelloAssoCsv> newHelloAssoCsvList) throws CsvRequiredFieldEmptyException, CsvDataTypeMismatchException, IOException {
 
-		final var file = new File("export-calandreta-de-la-dauna-01_02_2021-28_02_2021-NEW.csv");
+		final var file = new File("export-calandreta-compteur.csv");
 		Writer writer  = new FileWriter(file);
 
 		StatefulBeanToCsv sbc = new StatefulBeanToCsvBuilder(writer)
@@ -34,7 +34,7 @@ public class CsvWriterServiceImpl implements CsvWriterService {
 
 	@Override
 	public void ecrireNouveauFichierListeGagnant(List<HelloAssoWinnerCsv> newHelloAssoCsvList) throws CsvRequiredFieldEmptyException, CsvDataTypeMismatchException, IOException {
-		final var file = new File("export-calandreta-de-la-dauna-01_02_2021-28_02_2021-WINNERS.csv");
+		final var file = new File("export-calandreta-gagnant.csv");
 		Writer writer  = new FileWriter(file);
 
 		StatefulBeanToCsv sbc = new StatefulBeanToCsvBuilder(writer)

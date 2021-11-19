@@ -5,24 +5,30 @@ import com.comassky.dauna.services.CsvReaderServiceInterface;
 import com.opencsv.bean.CsvToBeanBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class CsvReaderService implements CsvReaderServiceInterface {
+
+	@Value("${chemin.hello.asso}")
+	private String helloAssoFile;
 
 	private static final Logger logger =  LoggerFactory.getLogger(CsvReaderService.class);
 
 	@Override
 	public List<HelloAssoCsv> readHelloAssoDtoFromFile() throws IOException {
-		Resource resource = new ClassPathResource("export-calandreta-de-la-dauna-01_02_2021-28_02_2021.csv");
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(helloAssoFile);
 
-		return new CsvToBeanBuilder(new InputStreamReader(resource.getInputStream()))
+		return new CsvToBeanBuilder(new InputStreamReader(new FileInputStream(file)))
 				.withType(HelloAssoCsv.class)
 				.withSeparator(';')
 				.build()
