@@ -18,7 +18,7 @@ import java.util.Objects;
 @Service
 public class CsvReaderService implements CsvReaderServiceInterface {
 
-	@Value("${chemin.hello.asso}")
+	@Value("${fichier.hello.asso}")
 	private String helloAssoFile;
 
 	private static final Logger logger =  LoggerFactory.getLogger(CsvReaderService.class);
@@ -26,7 +26,7 @@ public class CsvReaderService implements CsvReaderServiceInterface {
 	@Override
 	public List<HelloAssoCsv> readHelloAssoDtoFromFile() throws IOException {
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(helloAssoFile);
+		File file = new File("./fichier/"+helloAssoFile);
 
 		return new CsvToBeanBuilder(new InputStreamReader(new FileInputStream(file)))
 				.withType(HelloAssoCsv.class)
