@@ -53,7 +53,7 @@ class HelloAssoRunner implements CommandLineRunner {
 		//On mélange
 		final List<HelloAssoWinnerCsv> listeGagnant = new ArrayList<>();
 		IntStream.range(0,nombreLot).forEach(i -> {
-			final var melange = this.randomGeneratorService.melangerListe(100, listeTickets);
+			final var melange = this.randomGeneratorService.melangerListe(500, listeTickets);
 			final var winner = this.randomGeneratorService.recupererNumeroGagnant(listeTickets, true);
 			final var winnerCSV = new HelloAssoWinnerCsv(winner);
 			winnerCSV.setLot("Lot : " + (i + 1));
