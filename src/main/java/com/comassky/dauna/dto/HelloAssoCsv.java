@@ -1,88 +1,58 @@
 package com.comassky.dauna.dto;
 
-import com.opencsv.bean.CsvBindByName;
-import com.opencsv.bean.CsvDate;
-import com.opencsv.bean.CsvIgnore;
+import com.opencsv.bean.CsvBindByPosition;
 import com.opencsv.bean.CsvNumber;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class HelloAssoCsv {
 
-	@CsvBindByName(column = "Numéro")
+	@CsvBindByPosition(position = 11)
 	private int numero;
 
-	@CsvBindByName(column = "Campagne")
-	private String campagne;
+	@CsvBindByPosition(position = 0)
+	private String dateAchat;
 
-	@CsvBindByName(column = "Formule")
-	private String formule;
+	//@CsvBindByName(column = "Email acheteur")
+	@CsvBindByPosition(position = 1)
+	private String emailAcheteur;
 
-	@CsvBindByName(column = "Montant inscription")
+	//@CsvBindByName(column = "Nom")
+	@CsvBindByPosition(position = 2)
+	private String nom;
+
+	//@CsvBindByName(column = "Prénom")
+	@CsvBindByPosition(position = 3)
+	private String prenom;
+
+	@CsvBindByPosition(position = 4)
+	//@CsvBindByName(column = "Status")
+	private String status;
+
+	@CsvBindByPosition(position = 5)
+	//@CsvBindByName(column = "Tarif")
+	private String tarif;
+
+	@CsvBindByPosition(position = 6)
+	//@CsvBindByName(column = "Montant (€)")
 	@CsvNumber("#0,00")
 	private float montant;
 
-	@CsvBindByName(column = "Code promo")
+	@CsvBindByPosition(position = 7)
+	//@CsvBindByName(column = "Code Promo")
 	private String codePromo;
 
-	@CsvBindByName(column = "Statut")
-	private String statut;
+	@CsvBindByPosition(position = 8)
+	//@CsvBindByName(column = "Url billet")
+	private String urlBillet;
 
-	@CsvBindByName(column = "Moyen de paiement")
-	private String moyenDePaiement;
+	@CsvBindByPosition(position = 9)
+	//@CsvBindByName(column = "Champ complémentaire 1\n" +
+	//		"Numéro de téléphone")
+	private String telephone;
 
-	@CsvBindByName(column = "Nom")
-	private String nom;
-
-	@CsvBindByName(column = "Prénom")
-	private String prenom;
-
-	@CsvBindByName(column = "Société")
-	private String societe;
-
-	@CsvBindByName(column = "Date")
-	@CsvDate("dd/MM/yyyy HH:mm:ss")
-	private LocalDateTime date;
-
-	@CsvBindByName(column = "Email")
-	private String email;
-
-	@CsvBindByName(column = "Date de naissance")
-	@CsvDate("dd/MM/yyyy")
-	private LocalDate dateNaissance;
-
-	@CsvBindByName(column = "Attestation")
-	private String attestation;
-
-	@CsvBindByName(column = "Reçu")
-	private String recu;
-
-	@CsvBindByName(column = "Numéro de reçu")
-	private String numeroRecu;
-
-	@CsvBindByName(column = "Billet")
-	private String billet;
-
-	@CsvBindByName(column = "Nom acheteur")
-	private String nomAcheteur;
-
-	@CsvBindByName(column = "Prénom acheteur")
-	private String prenomAcheteur;
-
-	@CsvBindByName(column = "Adresse acheteur")
-	private String adresseAcheteur;
-
-	@CsvBindByName(column = "Code Postal acheteur")
-	private String codePostalAcheteur;
-
-	@CsvBindByName(column = "Ville acheteur")
-	private String villeAcheteur;
-
-	@CsvBindByName(column = "Pays acheteur")
-	private String paysAcheteur;
-
-	public HelloAssoCsv() {}
+	@CsvBindByPosition(position = 10)
+	//@CsvBindByName(column = "Champ complémentaire 2\n" +
+	//		"Adresse email")
+	private String emailBis;
 
 	public int getNumero() {
 		return numero;
@@ -92,52 +62,20 @@ public class HelloAssoCsv {
 		this.numero = numero;
 	}
 
-	public String getCampagne() {
-		return campagne;
+	public String getDateAchat() {
+		return dateAchat;
 	}
 
-	public void setCampagne(String campagne) {
-		this.campagne = campagne;
+	public void setDateAchat(String dateAchat) {
+		this.dateAchat = dateAchat;
 	}
 
-	public String getFormule() {
-		return formule;
+	public String getEmailAcheteur() {
+		return emailAcheteur;
 	}
 
-	public void setFormule(String formule) {
-		this.formule = formule;
-	}
-
-	public float getMontant() {
-		return montant;
-	}
-
-	public void setMontant(float montant) {
-		this.montant = montant;
-	}
-
-	public String getCodePromo() {
-		return codePromo;
-	}
-
-	public void setCodePromo(String codePromo) {
-		this.codePromo = codePromo;
-	}
-
-	public String getStatut() {
-		return statut;
-	}
-
-	public void setStatut(String statut) {
-		this.statut = statut;
-	}
-
-	public String getMoyenDePaiement() {
-		return moyenDePaiement;
-	}
-
-	public void setMoyenDePaiement(String moyenDePaiement) {
-		this.moyenDePaiement = moyenDePaiement;
+	public void setEmailAcheteur(String emailAcheteur) {
+		this.emailAcheteur = emailAcheteur;
 	}
 
 	public String getNom() {
@@ -156,157 +94,59 @@ public class HelloAssoCsv {
 		this.prenom = prenom;
 	}
 
-	public String getSociete() {
-		return societe;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setSociete(String societe) {
-		this.societe = societe;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
-	public LocalDateTime getDate() {
-		return date;
+	public String getTarif() {
+		return tarif;
 	}
 
-	public void setDate(LocalDateTime date) {
-		this.date = date;
+	public void setTarif(String tarif) {
+		this.tarif = tarif;
 	}
 
-	public String getEmail() {
-		return email;
+	public float getMontant() {
+		return montant;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMontant(float montant) {
+		this.montant = montant;
 	}
 
-	public LocalDate getDateNaissance() {
-		return dateNaissance;
+	public String getCodePromo() {
+		return codePromo;
 	}
 
-	public void setDateNaissance(LocalDate dateNaissance) {
-		this.dateNaissance = dateNaissance;
+	public void setCodePromo(String codePromo) {
+		this.codePromo = codePromo;
 	}
 
-	public String getAttestation() {
-		return attestation;
+	public String getUrlBillet() {
+		return urlBillet;
 	}
 
-	public void setAttestation(String attestation) {
-		this.attestation = attestation;
+	public void setUrlBillet(String urlBillet) {
+		this.urlBillet = urlBillet;
 	}
 
-	public String getRecu() {
-		return recu;
+	public String getTelephone() {
+		return telephone;
 	}
 
-	public void setRecu(String recu) {
-		this.recu = recu;
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
 	}
 
-	public String getNumeroRecu() {
-		return numeroRecu;
+	public String getEmailBis() {
+		return emailBis;
 	}
 
-	public void setNumeroRecu(String numeroRecu) {
-		this.numeroRecu = numeroRecu;
-	}
-
-	public String getBillet() {
-		return billet;
-	}
-
-	public void setBillet(String billet) {
-		this.billet = billet;
-	}
-
-	public String getNomAcheteur() {
-		return nomAcheteur;
-	}
-
-	public void setNomAcheteur(String nomAcheteur) {
-		this.nomAcheteur = nomAcheteur;
-	}
-
-	public String getPrenomAcheteur() {
-		return prenomAcheteur;
-	}
-
-	public void setPrenomAcheteur(String prenomAcheteur) {
-		this.prenomAcheteur = prenomAcheteur;
-	}
-
-	public String getAdresseAcheteur() {
-		return adresseAcheteur;
-	}
-
-	public void setAdresseAcheteur(String adresseAcheteur) {
-		this.adresseAcheteur = adresseAcheteur;
-	}
-
-	public String getCodePostalAcheteur() {
-		return codePostalAcheteur;
-	}
-
-	public void setCodePostalAcheteur(String codePostalAcheteur) {
-		this.codePostalAcheteur = codePostalAcheteur;
-	}
-
-	public String getVilleAcheteur() {
-		return villeAcheteur;
-	}
-
-	public void setVilleAcheteur(String villeAcheteur) {
-		this.villeAcheteur = villeAcheteur;
-	}
-
-	public String getPaysAcheteur() {
-		return paysAcheteur;
-	}
-
-	public void setPaysAcheteur(String paysAcheteur) {
-		this.paysAcheteur = paysAcheteur;
-	}
-
-	@Override
-	public String toString() {
-		return "HelloAssoCsv{" +
-				"numero=" + numero +
-				", campagne='" + campagne + '\'' +
-				", formule='" + formule + '\'' +
-				", montant=" + montant +
-				", codePromo='" + codePromo + '\'' +
-				", statut='" + statut + '\'' +
-				", moyenDePaiement='" + moyenDePaiement + '\'' +
-				", nom='" + nom + '\'' +
-				", prenom='" + prenom + '\'' +
-				", societe='" + societe + '\'' +
-				", date=" + date +
-				", email='" + email + '\'' +
-				", dateNaissance=" + dateNaissance +
-				", attestation='" + attestation + '\'' +
-				", recu='" + recu + '\'' +
-				", numeroRecu='" + numeroRecu + '\'' +
-				", billet='" + billet + '\'' +
-				", nomAcheteur='" + nomAcheteur + '\'' +
-				", prenomAcheteur='" + prenomAcheteur + '\'' +
-				", adresseAcheteur='" + adresseAcheteur + '\'' +
-				", codePostalAcheteur='" + codePostalAcheteur + '\'' +
-				", villeAcheteur='" + villeAcheteur + '\'' +
-				", paysAcheteur='" + paysAcheteur + '\'' +
-				'}';
-	}
-
-
-	public int getNombreTicketReel() {
-		switch (this.formule) {
-			case "Un carnet de 5 tickets":
-				return 5;
-			case "Un carnet de 10 tickets":
-				return 10;
-			case "Un billet":
-				return 1;
-		}
-		return 0;
+	public void setEmailBis(String emailBis) {
+		this.emailBis = emailBis;
 	}
 }

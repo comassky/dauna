@@ -23,12 +23,9 @@ public class ConversionHelloService implements ConversionHelloServiceInterface {
 		final List<NewHelloAssoCsv> fichierSortie = new ArrayList<>();
 
 		fichierEntree.forEach(input -> {
-			final int nombreTicket = input.getNombreTicketReel();
-			IntStream.range(0, nombreTicket).forEach(ticket -> {
-				final NewHelloAssoCsv newHelloAssoCsv = new NewHelloAssoCsv(input);
-				newHelloAssoCsv.setNumero(fichierSortie.size()+1);
-				fichierSortie.add(newHelloAssoCsv);
-			});
+			final NewHelloAssoCsv newHelloAssoCsv = new NewHelloAssoCsv(input);
+			newHelloAssoCsv.setNumero(fichierSortie.size()+1);
+			fichierSortie.add(newHelloAssoCsv);
 		});
 		return fichierSortie;
 	}

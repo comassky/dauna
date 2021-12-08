@@ -1,28 +1,24 @@
 package com.comassky.dauna.dto;
 
-import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvBindByPosition;
 
 public class HelloAssoWinnerCsv extends HelloAssoCsv {
 
-	@CsvBindByName(column = "Lot")
+	@CsvBindByPosition(position = 12)
 	private String lot;
 
 	public HelloAssoWinnerCsv(final NewHelloAssoCsv newhelloAssoCsv)  {
 		this.setNumero(newhelloAssoCsv.getNumero());
-		this.setDateNaissance(newhelloAssoCsv.getDateNaissance());
-		this.setDate(newhelloAssoCsv.getDate());
-		this.setCampagne(newhelloAssoCsv.getCampagne());
-		this.setBillet(newhelloAssoCsv.getBillet());
-		this.setAdresseAcheteur(newhelloAssoCsv.getAdresseAcheteur());
-		this.setEmail(newhelloAssoCsv.getEmail());
-		this.setVilleAcheteur(newhelloAssoCsv.getVilleAcheteur());
-		this.setStatut(newhelloAssoCsv.getStatut());
-		this.setPrenomAcheteur(newhelloAssoCsv.getPrenomAcheteur());
+		this.setDateAchat(newhelloAssoCsv.getDateAchat());
+		this.setStatus(newhelloAssoCsv.getStatus());
 		this.setPrenom(newhelloAssoCsv.getPrenom());
-		this.setNomAcheteur(newhelloAssoCsv.getNomAcheteur());
 		this.setNom(newhelloAssoCsv.getNom());
-		this.setCodePostalAcheteur(newhelloAssoCsv.getCodePostalAcheteur());
-		this.setFormule(newhelloAssoCsv.getFormule());
+		this.setCodePromo(newhelloAssoCsv.getCodePromo());
+		this.setEmailAcheteur(newhelloAssoCsv.getEmailAcheteur());
+		this.setMontant(newhelloAssoCsv.getMontant());
+		this.setTarif(newhelloAssoCsv.getTarif());
+		this.setTelephone(newhelloAssoCsv.getTelephone());
+		this.setEmailBis(newhelloAssoCsv.getEmailBis());
 	}
 
 	public String getLot() {

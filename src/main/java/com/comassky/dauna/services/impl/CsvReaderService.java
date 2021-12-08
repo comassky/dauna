@@ -6,6 +6,8 @@ import com.opencsv.bean.CsvToBeanBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -26,9 +28,17 @@ public class CsvReaderService implements CsvReaderServiceInterface {
 	@Override
 	public List<HelloAssoCsv> readHelloAssoDtoFromFile() throws IOException {
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File("./fichier/"+helloAssoFile);
+		//File file = new File("./fichier/"+helloAssoFile);
+		Resource resource = new ClassPathResource("hello.csv");
 
-		return new CsvToBeanBuilder(new InputStreamReader(new FileInputStream(file)))
+		/*return new CsvToBeanBuilder(new InputStreamReader(new FileInputStream(file)))
+				.withType(HelloAssoCsv.class)
+				.withSeparator(';')
+				.build()
+				.parse();*/
+
+
+		return new CsvToBeanBuilder(new InputStreamReader(resource.getInputStream()))
 				.withType(HelloAssoCsv.class)
 				.withSeparator(';')
 				.build()
