@@ -10,10 +10,8 @@ import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Service
@@ -22,26 +20,30 @@ public class CsvWriterServiceImpl implements CsvWriterService {
 	public void ecrireNouveauFichierListe(final List<NewHelloAssoCsv> newHelloAssoCsvList) throws CsvRequiredFieldEmptyException, CsvDataTypeMismatchException, IOException {
 
 		final var file = new File("export-calandreta-compteur.csv");
-		Writer writer  = new FileWriter(file);
+		final var os = new FileOutputStream(file);
+		final var csvWrite = new CSVWriter(new OutputStreamWriter(os, StandardCharsets.ISO_8859_1));
 
-		StatefulBeanToCsv sbc = new StatefulBeanToCsvBuilder(writer)
+		StatefulBeanToCsv sbc = new StatefulBeanToCsvBuilder(csvWrite)
 				.withSeparator(CSVWriter.DEFAULT_SEPARATOR)
 				.build();
 
 		sbc.write(newHelloAssoCsvList);
-		writer.close();
+		csvWrite.close();
 	}
 
 	@Override
 	public void ecrireNouveauFichierListeGagnant(List<HelloAssoWinnerCsv> newHelloAssoCsvList) throws CsvRequiredFieldEmptyException, CsvDataTypeMismatchException, IOException {
 		final var file = new File("export-calandreta-gagnant.csv");
-		Writer writer  = new FileWriter(file);
 
-		StatefulBeanToCsv sbc = new StatefulBeanToCsvBuilder(writer)
+
+		final var os = new FileOutputStream(file);
+		final var csvWrite = new CSVWriter(new OutputStreamWriter(os, StandardCharsets.ISO_8859_1));
+
+		StatefulBeanToCsv sbc = new StatefulBeanToCsvBuilder(csvWrite)
 				.withSeparator(CSVWriter.DEFAULT_SEPARATOR)
 				.build();
 
 		sbc.write(newHelloAssoCsvList);
-		writer.close();
+		csvWrite.close();
 	}
 }

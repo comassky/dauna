@@ -1,57 +1,62 @@
 package com.comassky.dauna.dto;
 
+import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvBindByPosition;
+import com.opencsv.bean.CsvDate;
 import com.opencsv.bean.CsvNumber;
+
+import java.time.LocalDateTime;
 
 public class HelloAssoCsv {
 
-	@CsvBindByPosition(position = 11)
+	@CsvBindByName(column = "Numéro")
 	private int numero;
 
-	@CsvBindByPosition(position = 0)
-	private String dateAchat;
+	@CsvBindByName(column = "Date")
+	@CsvDate("dd/MM/yyyy HH:mm:ss")
+	private LocalDateTime dateAchat;
 
-	//@CsvBindByName(column = "Email acheteur")
-	@CsvBindByPosition(position = 1)
+	@CsvBindByName(column = "Email acheteur")
+	//@CsvBindByPosition(position = 1)
 	private String emailAcheteur;
 
-	//@CsvBindByName(column = "Nom")
-	@CsvBindByPosition(position = 2)
+	@CsvBindByName(column = "Nom")
+	//@CsvBindByPosition(position = 2)
 	private String nom;
 
-	//@CsvBindByName(column = "Prénom")
-	@CsvBindByPosition(position = 3)
+	@CsvBindByName(column = "Prénom")
+	//@CsvBindByPosition(position = 3)
 	private String prenom;
 
-	@CsvBindByPosition(position = 4)
-	//@CsvBindByName(column = "Status")
+	//@CsvBindByPosition(position = 4)
+	@CsvBindByName(column = "Status")
 	private String status;
 
-	@CsvBindByPosition(position = 5)
-	//@CsvBindByName(column = "Tarif")
+	//@CsvBindByPosition(position = 5)
+	@CsvBindByName(column = "Tarif")
 	private String tarif;
 
-	@CsvBindByPosition(position = 6)
-	//@CsvBindByName(column = "Montant (€)")
+	//@CsvBindByPosition(position = 6)
+	@CsvBindByName(column = "Montant (€)")
 	@CsvNumber("#0,00")
 	private float montant;
 
-	@CsvBindByPosition(position = 7)
-	//@CsvBindByName(column = "Code Promo")
+	//@CsvBindByPosition(position = 7)
+	@CsvBindByName(column = "Code Promo")
 	private String codePromo;
 
-	@CsvBindByPosition(position = 8)
-	//@CsvBindByName(column = "Url billet")
+	//@CsvBindByPosition(position = 8)
+	@CsvBindByName(column = "Url billet")
 	private String urlBillet;
 
-	@CsvBindByPosition(position = 9)
-	//@CsvBindByName(column = "Champ complémentaire 1\n" +
-	//		"Numéro de téléphone")
+	//@CsvBindByPosition(position = 9)
+	@CsvBindByName(column = "Champ complémentaire 1\n" +
+			"Numéro de téléphone")
 	private String telephone;
 
-	@CsvBindByPosition(position = 10)
-	//@CsvBindByName(column = "Champ complémentaire 2\n" +
-	//		"Adresse email")
+	//@CsvBindByPosition(position = 10)
+	@CsvBindByName(column = "Champ complémentaire 2\n" +
+			"Adresse email")
 	private String emailBis;
 
 	public int getNumero() {
@@ -62,11 +67,11 @@ public class HelloAssoCsv {
 		this.numero = numero;
 	}
 
-	public String getDateAchat() {
+	public LocalDateTime getDateAchat() {
 		return dateAchat;
 	}
 
-	public void setDateAchat(String dateAchat) {
+	public void setDateAchat(LocalDateTime dateAchat) {
 		this.dateAchat = dateAchat;
 	}
 

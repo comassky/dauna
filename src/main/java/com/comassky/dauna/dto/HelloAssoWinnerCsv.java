@@ -1,10 +1,10 @@
 package com.comassky.dauna.dto;
 
-import com.opencsv.bean.CsvBindByPosition;
+import com.opencsv.bean.CsvBindByName;
 
 public class HelloAssoWinnerCsv extends HelloAssoCsv {
 
-	@CsvBindByPosition(position = 12)
+	@CsvBindByName(column = "Lot")
 	private String lot;
 
 	public HelloAssoWinnerCsv(final NewHelloAssoCsv newhelloAssoCsv)  {
